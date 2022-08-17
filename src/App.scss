@@ -1,0 +1,29 @@
+html, body {
+  background-color: #2e323b;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  text-align: center;
+  height: 100%;
+}
+
+.App-header {
+  display: flex;
+  background-color: #22252c;
+
+  .title {
+    font-size: 2.5rem;
+    margin: 1rem 2rem;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+.game {
+  margin-top: 2rem;
+}
