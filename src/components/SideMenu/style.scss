@@ -1,0 +1,13 @@
+ul.side-menu {
+  margin: 0;
+  padding: 0;
+
+  .menu-item {
+    display: flex;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    padding: 1rem 0
+  }
+}

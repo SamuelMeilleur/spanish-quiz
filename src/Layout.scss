@@ -1,0 +1,39 @@
+html, body {
+  background-color: #2e323b;
+  color: white;
+
+  &, #root {
+    height: 100%;
+    text-align: center;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #22252c;
+  height: 5rem;
+
+  .title {
+    font-size: 2.5rem;
+    margin: 1rem 2rem;
+  }
+}
+
+.content {
+  display: grid;
+  height: calc(100% - 5rem);
+  grid-template: 'menu game';
+  grid-template-columns: 18rem auto 12rem;
+
+  .side-menu {
+    grid-area: menu;
+    background-color: #282b34;
+  }
+
+  .game {
+    grid-area: game;
+    margin-top: 2rem;
+  }
+}

@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import shuffle from 'lodash/shuffle';
 import Tooltip from '@mui/material/Tooltip';
 import Fade from '@mui/material/Fade';
 import { GrPowerReset } from 'react-icons/gr';
 
-import GuessInput from '../guessInput';
+import GuessInput from '../GuessInput';
 import { capitalizeWord } from '../../utils/formatting';
 
 import './style.scss';
 
 const Game = props => {
-  const [words, setWords] = useState(shuffle(props.words))
+  const { data, category } = props;
+
+  const [words, setWords] = useState(shuffle(data[category]))
   const [wordIndex, setWordIndex] = useState(0);
   const [isCorrect, setIsCorrect] = useState(null);
   const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    reset();
+  }, [category]);
 
   const validate = (input, word) => {
     const valid = input.toLocaleLowerCase() === word.en.toLocaleLowerCase()
@@ -29,7 +35,7 @@ const Game = props => {
     setWordIndex(0);
     setIsCorrect(null);
     setErrors([]);
-    setWords(shuffle(words));
+    setWords(shuffle(data[category]));
   };
 
   const displayIsCorrect = () => {
@@ -61,8 +67,8 @@ const Game = props => {
                 title={capitalizeWord(word.en)}
                 placement="top"
                 arrow
-                enterDelay={400}
-                enterNextDelay={400}
+                enterDelay={250}
+                enterNextDelay={250}
                 leaveDelay={150}
                 components={{
                   Transition: Fade
